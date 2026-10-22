@@ -1,0 +1,51 @@
+/* Challenge 5. Container Query: reusable Card.
+   Challenge 6. Container Query units — продовжуйте в цьому ж файлі.
+   Ваш CSS — тут. @media для зміни layout картки не використовувати. */
+
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.sidebar,
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-wrapper {
+  container: card / inline-size;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card {
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+  grid-template-rows: auto 1fr;
+}
+
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@container card (min-width: 33rem) {
+  .product-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+}
+
+.modal {
+  margin: 2rem auto;
+}
+
+.product-card__title {
+  font-size: clamp(1.1rem, 5cqi, 2rem);
+}

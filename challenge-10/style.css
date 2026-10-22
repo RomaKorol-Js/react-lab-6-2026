@@ -1,0 +1,45 @@
+/* Challenge 10. Final Responsive Component.
+   Обов'язково: Grid, Flexbox, minmax()/auto-fit, clamp(), Container Query.
+   */
+
+.feature-section {
+  width: 100%;
+  max-width: 80rem;
+  padding: clamp(1.25rem, 5vw, 4rem);
+}
+
+.feature-section h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+}
+
+.feature-section p {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+
+.feature {
+  container: feature / inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feature h3 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.feature a {
+  margin-top: 0.25rem;
+}
+
+@container feature (min-width: 20rem) {
+  .feature a {
+    margin-top: auto;
+  }
+}
